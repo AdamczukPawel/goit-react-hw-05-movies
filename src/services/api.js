@@ -17,22 +17,20 @@ export const fetchMoviesByQuery = async query => {
 };
 
 export const fetchMovieDetails = async id => {
-  const response = await axios.get(
-    '/search/movie/' + id + '?api_key=' + apiKey
-  );
+  const response = await axios.get('/movie/' + id + '?api_key=' + apiKey);
   return response.data;
 };
 
 export const fetchMovieCredits = async id => {
   const response = await axios.get(
-    '/search/movie/' + id + '/credits?api_key=' + apiKey
+    '/movie/' + id + '/credits?api_key=' + apiKey
   );
   return response.data;
 };
 
 export const fetchMovieReviews = async id => {
   const response = await axios.get(
-    '/search/movie/' + id + '/reviews?api_key=' + apiKey + '&page=1'
+    '/movie/' + id + '/reviews?api_key=' + apiKey + '&page=1'
   );
   return response.data;
 };

@@ -4,7 +4,6 @@ import WebappTemplate from './WebappTemplate/WebappTemplate';
 
 const Home = lazy(() => import('../pages/Home/Home'));
 const Movies = lazy(() => import('../pages/Movies/Movies'));
-const NotFound = lazy(() => import('./NotFound/NotFound'));
 const MovieDetails = lazy(() =>
   import('pages/Movies/MovieDetails/MovieDetails')
 );
@@ -22,7 +21,7 @@ function App() {
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Home />} />
         </Route>
       </Routes>
     </>
