@@ -12,7 +12,6 @@ const Movies = () => {
 
   const handleInputChange = event => {
     setInputedQuery(event.target.value);
-    console.log(inputedQuery);
   };
 
   const handleSubmit = event => {
@@ -25,7 +24,6 @@ const Movies = () => {
     const getFoundMovies = async () => {
       const movieList = await fetchMoviesByQuery(movieQuery);
       setFoundMovies(movieList.results);
-      console.log(movieList.results);
     };
     getFoundMovies();
   }, [movieQuery]);
