@@ -37,6 +37,7 @@ const Movies = () => {
           value={inputedQuery}
           onChange={handleInputChange}
           className={css.input}
+          placeholder="Movie name"
         ></input>
         <button type="submit" className={css.button}>
           Search
