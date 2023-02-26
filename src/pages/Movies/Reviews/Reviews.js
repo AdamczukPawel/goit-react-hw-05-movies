@@ -12,7 +12,7 @@ const Reviews = () => {
       setReviews(movieReview.results);
     };
     getMovieReviews();
-  }, []);
+  }, [movieId]);
 
   return (
     <>
