@@ -1,0 +1,51 @@
+.movieDetails {
+  padding: 20px 30px 20px 0px;
+}
+
+.mainInfo {
+  display: flex;
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+}
+
+.poster {
+  object-fit: contain;
+  width: 300px;
+  margin-right: 40px;
+}
+
+.list {
+  list-style: none;
+  padding: 0px;
+}
+
+.element:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.info {
+  padding-left: 20px;
+  border-bottom: 1px solid;
+}
+
+.addList {
+  list-style: none;
+  padding: 0;
+}
+
+.addList__element {
+  font-size: 20px;
+}
+
+.addList__element:not(:last-child) {
+  padding-bottom: 10px;
+}
+
+.addList__element > a {
+  text-decoration: none;
+  color: black;
+}
+
+.addList__element > a:hover {
+  color: red;
+}

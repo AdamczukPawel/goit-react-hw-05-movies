@@ -1,0 +1,15 @@
+.list {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.element {
+  margin: 10px;
+  display: flex;
+}
+
+.image {
+  object-fit: contain;
+  width: 150px;
+  margin-right: 20px;
+}

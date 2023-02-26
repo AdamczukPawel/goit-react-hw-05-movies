@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from '../../../services/api';
+import css from './Cast.module.css';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -20,11 +21,12 @@ const Cast = () => {
       {cast.length === 0 ? (
         <p>Sorry, we don't have informations about the cast of this movie</p>
       ) : (
-        <ul>
+        <ul className={css.list}>
           {cast.map(actor => {
             return (
-              <li key={actor.id}>
+              <li key={actor.id} className={css.element}>
                 <img
+                  className={css.image}
                   src={
                     actor.profile_path
                       ? actorProfileImg + actor.profile_path
@@ -33,7 +35,7 @@ const Cast = () => {
                   alt={actor.name}
                 />
                 <div>
-                  <p>{actor.name}</p>
+                  <h3 className={css.name}>{actor.name}</h3>
                   <p>Character: {actor.character}</p>
                 </div>
               </li>
