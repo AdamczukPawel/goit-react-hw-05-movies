@@ -13,7 +13,6 @@ const Cast = () => {
       const movieCast = await fetchMovieCredits(movieId);
 
       setCast(movieCast.cast);
-      console.log(Math.random());
     };
     getMovieCast();
   }, [movieId]);

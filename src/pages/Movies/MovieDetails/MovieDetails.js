@@ -10,7 +10,7 @@ const MovieDetails = () => {
   const moviePosterImg = `https://image.tmdb.org/t/p/w500`;
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
-
+  
   useEffect(() => {
     const getMovieDetails = async () => {
       const movieDetails = await fetchMovieDetails(movieId);
