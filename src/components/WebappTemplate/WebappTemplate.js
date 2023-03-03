@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import Nav from 'components/Nav/Nav';
+import { Loader } from 'components/Loader/Loader';
 
 function WebappTemplate() {
   return (
@@ -9,7 +10,7 @@ function WebappTemplate() {
         <Nav />
       </header>
       <main>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </main>

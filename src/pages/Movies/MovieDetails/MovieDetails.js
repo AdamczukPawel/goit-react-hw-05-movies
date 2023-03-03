@@ -3,6 +3,7 @@ import { useState, useEffect, Suspense } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieDetails } from '../../../services/api';
 import css from './MovieDetails.module.css';
+import { Loader } from '../../../components/Loader/Loader';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -72,7 +73,7 @@ const MovieDetails = () => {
           </li>
         </ul>
       </div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </div>

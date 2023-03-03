@@ -5,10 +5,10 @@ import WebappTemplate from './WebappTemplate/WebappTemplate';
 const Home = lazy(() => import('../pages/Home/Home'));
 const Movies = lazy(() => import('../pages/Movies/Movies'));
 const MovieDetails = lazy(() =>
-  import('pages/Movies/MovieDetails/MovieDetails')
+  import('../pages/Movies/MovieDetails/MovieDetails')
 );
-const Cast = lazy(() => import('pages/Movies/Cast/Cast'));
-const Reviews = lazy(() => import('pages/Movies/Reviews/Reviews'));
+const Cast = lazy(() => import('../pages/Movies/Cast/Cast'));
+const Reviews = lazy(() => import('../pages/Movies/Reviews/Reviews'));
 
 function App() {
   return (

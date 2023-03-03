@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { Loader } from 'components/Loader/Loader';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import { fetchMoviesByQuery } from '../../services/api';
 import css from './Movies.module.css';
@@ -43,26 +44,27 @@ const Movies = () => {
           Search
         </button>
       </form>
-
-      <ul className={css.list}>
-        {!foundMovies ? (
-          <></>
-        ) : (
-          foundMovies.map(movie => {
-            return (
-              <li key={movie.id} className={css.element}>
-                <Link
-                  to={`/movies/${movie.id}`}
-                  state={{ from: location }}
-                  className={css.link}
-                >
-                  {movie.title || movie.name}
-                </Link>
-              </li>
-            );
-          })
-        )}
-      </ul>
+      <Suspense fallback={<Loader />}>
+        <ul className={css.list}>
+          {!foundMovies ? (
+            <></>
+          ) : (
+            foundMovies.map(movie => {
+              return (
+                <li key={movie.id} className={css.element}>
+                  <Link
+                    to={`/movies/${movie.id}`}
+                    state={{ from: location }}
+                    className={css.link}
+                  >
+                    {movie.title || movie.name}
+                  </Link>
+                </li>
+              );
+            })
+          )}
+        </ul>
+      </Suspense>
     </div>
   );
 };
