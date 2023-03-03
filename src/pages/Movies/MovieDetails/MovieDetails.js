@@ -1,5 +1,5 @@
 import BackLink from 'components/BackLink/BackLink';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieDetails } from '../../../services/api';
 import css from './MovieDetails.module.css';
@@ -10,7 +10,7 @@ const MovieDetails = () => {
   const moviePosterImg = `https://image.tmdb.org/t/p/w500`;
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
-  
+
   useEffect(() => {
     const getMovieDetails = async () => {
       const movieDetails = await fetchMovieDetails(movieId);
@@ -61,14 +61,20 @@ const MovieDetails = () => {
         <h2>Additional informations</h2>
         <ul className={css.addList}>
           <li className={css.addList__element}>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={{ from: backLinkHref }}>
+              Cast
+            </Link>
           </li>
           <li className={css.addList__element}>
-            <Link to="reviews">Reviews</Link>
+            <Link to="reviews" state={{ from: backLinkHref }}>
+              Reviews
+            </Link>
           </li>
         </ul>
       </div>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
